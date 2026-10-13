@@ -3,140 +3,156 @@
 **Student Name:** G MANOJ  
 **Student ID:** VTU32452
 
-## 📌 Project Overview
+## 1. Project Overview
 
-This project investigates how annotator noise affects preference learning by comparing two simplified approaches inspired by Reinforcement Learning from Human Feedback (RLHF) and Direct Preference Optimization (DPO).
+This project studies the effect of annotator noise on preference learning by comparing two simplified approaches inspired by Reinforcement Learning from Human Feedback (RLHF) and Direct Preference Optimization (DPO).
 
-The application simulates noisy human preference annotations at three different noise levels: **0%, 10%, and 30%**. It evaluates both approaches against clean synthetic gold preferences and displays the results through an interactive web dashboard.
+The project simulates noisy human preference annotations at three noise levels: 0%, 10%, and 30%. It evaluates both approaches against synthetic gold preferences and displays the results using tables, graphs, and an interactive web application.
 
-## 🎯 Objectives
+## 2. Objectives
 
-- Simulate human preference annotations with different levels of noise.
-- Compare RLHF-style and DPO-style preference-learning models.
-- Evaluate model accuracy against clean gold preferences.
-- Measure ranking correlation between predicted scores and gold rewards.
-- Visualize the performance gap using graphs and result tables.
-- Generate an experimental conclusion based on the observed results.
+- Study the impact of noisy preference annotations on model performance.
+- Compare simplified RLHF-style and DPO-style approaches.
+- Generate synthetic preference data and gold reward scores.
+- Evaluate preference prediction accuracy.
+- Measure ranking correlation between learned scores and gold rewards.
+- Visualize experimental results at different noise levels.
+- Understand the limitations of preference learning under noisy supervision.
 
-## ✨ Features
+## 3. Key Features
 
-- Interactive web application built with Gradio.
-- Configurable annotator noise levels.
 - Synthetic preference dataset generation.
-- RLHF-style linear reward-model proxy.
-- DPO-style nonlinear direct preference-model proxy.
-- Held-out preference accuracy evaluation.
-- Spearman ranking-correlation analysis.
-- Automatic performance comparison graph.
-- Generated experimental conclusion.
-- Adjustable random seed for reproducible experiments.
+- Configurable annotator noise levels.
+- RLHF-style reward-model implementation.
+- DPO-style pairwise preference-model implementation.
+- Evaluation using held-out preference pairs.
+- Preference accuracy and Spearman rank-correlation metrics.
+- Performance comparison tables and graphs.
+- Interactive Gradio dashboard.
+- Reproducible experiments using a configurable random seed.
 
-## 🛠️ Technologies Used
+## 4. Technologies Used
 
-- **Python** — Core programming language
-- **NumPy** — Numerical computations and synthetic data generation
-- **Pandas** — Experimental result management
-- **Scikit-learn** — Machine-learning models
-- **SciPy** — Ranking-correlation calculations
-- **Matplotlib** — Data visualization
-- **Gradio** — Interactive web interface
-- **Google Colab** — Cloud-based execution environment
+- **Programming Language:** Python
+- **Libraries:** NumPy, Pandas, SciPy, Scikit-learn, Matplotlib
+- **Web Interface:** Gradio
+- **Development Environment:** Google Colab / Jupyter Notebook
+- **Version Control:** Git and GitHub
 
-## 🔬 Experimental Methodology
+## 5. Project Methodology
 
-The project follows these steps:
-
-1. Generate 200 synthetic candidate answers with six numerical features each.
-2. Assign a synthetic gold reward to every candidate.
+1. Generate a synthetic dataset containing candidate answers and numerical features.
+2. Assign gold reward scores to the candidates.
 3. Generate preference pairs using the gold rewards.
-4. Introduce annotator noise by randomly reversing some preference labels.
-5. Train the two simplified preference-learning models.
-6. Evaluate their predictions on clean held-out preference pairs.
-7. Compare accuracy, ranking correlation, and the performance gap.
-8. Display the experimental results in the web application.
+4. Introduce annotator noise by randomly flipping a proportion of preference labels.
+5. Train the simplified RLHF-style and DPO-style models.
+6. Evaluate both approaches on held-out preference pairs.
+7. Calculate preference accuracy and ranking correlation.
+8. Compare model performance across different noise levels.
+9. Present the results using tables, graphs, and the web interface.
 
-## 📊 Noise Levels
+## 6. Annotator Noise Levels
 
 | Noise Level | Description |
 |---|---|
 | 0% | No intentional preference-label flipping |
-| 10% | Approximately 10% of preferences are flipped on average |
-| 30% | Approximately 30% of preferences are flipped on average |
+| 10% | Approximately 10% of preference labels are flipped |
+| 30% | Approximately 30% of preference labels are flipped |
 
-## 📈 Evaluation Metrics
+These experiments help investigate how incorrect preference annotations influence learned reward scores and preference predictions.
 
-**1. Held-out Preference Accuracy**
+## 7. Evaluation Metrics
 
-Measures the fraction of test pairs for which the model predicts the correct winner according to the gold reward.
+### Preference Accuracy
 
-**2. Ranking Correlation**
+Measures the proportion of held-out preference pairs for which the model correctly predicts the preferred candidate.
 
-Uses Spearman correlation to measure how closely the learned reward scores rank candidates compared with their gold rewards.
+### Spearman Rank Correlation
 
-**3. Performance Gap**
+Measures the agreement between the ranking produced by learned reward scores and the ranking produced by synthetic gold rewards.
 
-Calculated as:
+### Performance Gap
 
-`Performance Gap = DPO-Style Accuracy - RLHF-Style Accuracy`
+The performance gap is calculated as:
 
-A positive gap indicates that the DPO-style proxy has higher accuracy in that experiment. A negative gap indicates that the RLHF-style proxy has higher accuracy.
+`DPO-Style Accuracy - RLHF-Style Accuracy`
 
-## 🚀 How to Run the Project
+A positive value indicates higher accuracy for the DPO-style model, while a negative value indicates higher accuracy for the RLHF-style model.
 
-### Option 1: Google Colab
+## 8. How to Run the Project
 
-1. Open [Google Colab](https://colab.research.google.com/).
-2. Create a new notebook.
-3. Copy the complete project code into a code cell.
-4. Run the cell and wait for the required packages to install.
-5. Open the Gradio share link displayed in the output.
-6. Select the noise levels and click **Run Experiment**.
-7. View the results table, graph, and generated conclusion.
+### Option A: Google Colab
 
-### Option 2: Run Locally
+1. Open the project notebook from the GitHub repository.
+2. Download the notebook or open it in Google Colab.
+3. Run the cells in the correct order.
+4. Install any required dependencies if prompted.
+5. Execute the experiment and model-evaluation cells.
+6. Run the Gradio application cell.
+7. Open the generated application link, if available.
+8. Review the results tables, comparison graphs, and experimental conclusions.
 
-**Step 1: Clone the repository**
+**Project Notebook:** [VTU32452_LLMPROJECT.ipynb](https://github.com/manojnaidu123a-cmyk/Annotator-Noise-Lab.vtu32452/blob/main/VTU32452_LLMPROJECT.ipynb)
 
-```bash
-git clone https://github.com/kusumakureti47/rlhf-vs-dpo-annotator-noise.git
-```
+### Option B: Run Locally
 
-**Step 2: Open the project directory**
-
-```bash
-cd rlhf-vs-dpo-annotator-noise
-```
-
-**Step 3: Install dependencies**
+Clone the repository:
 
 ```bash
-pip install gradio numpy pandas matplotlib scikit-learn scipy
+git clone https://github.com/manojnaidu123a-cmyk/Annotator-Noise-Lab.vtu32452.git
 ```
 
-**Step 4: Run the application**
-
-Save the application code in a Python file named `app.py`, then execute:
+Navigate to the project directory:
 
 ```bash
-python app.py
+cd Annotator-Noise-Lab.vtu32452
 ```
 
-Open the local URL displayed in the terminal.
+Install the dependencies:
 
-## 📋 Results
+```bash
+pip install gradio numpy pandas matplotlib scikit-learn scipy jupyter
+```
 
-The application produces a comparison table and a bar chart for the selected noise levels.
+Launch the notebook:
 
-The experiment helps investigate whether increasing annotator noise changes the relative performance of the two approaches. Actual results should be recorded after running the application.
+```bash
+jupyter notebook VTU32452_LLMPROJECT.ipynb
+```
 
-## ⚠️ Limitations
+Run the notebook cells in order to execute the experiment.
 
-This project is an educational synthetic simulation.
+## 9. Results and Discussion
 
-- The dataset is generated artificially.
-- The RLHF-style implementation uses a simplified linear reward model.
-- The DPO-style implementation uses a simplified nonlinear pairwise preference model.
-- Neither implementation represents a complete RLHF or standard DPO training pipeline for a language model.
-- Results depend on the synthetic reward function, feature representations, training settings, and random seed.
+The application compares the performance of the two simplified approaches at different annotator-noise levels.
 
-Therefore, the findings should not be interpreted as a definitive real-world comparison of
+The generated tables and graphs can be used to examine changes in preference accuracy, ranking correlation, and the performance gap as annotation noise increases.
+
+**Note:** Actual numerical results and conclusions should be added only after successfully running the notebook and reviewing the outputs.
+
+## 10. Limitations
+
+- The dataset consists of synthetic preference annotations rather than real human feedback.
+- The RLHF-style approach uses a simplified reward-model implementation.
+- The DPO-style approach uses a simplified pairwise preference-model implementation.
+- The project does not implement a complete language-model RLHF training pipeline or standard end-to-end DPO fine-tuning.
+- Experimental results depend on the synthetic reward function, dataset, model configuration, and random seed.
+- The findings should not be treated as a definitive real-world comparison of RLHF and DPO.
+
+## 11. Conclusion
+
+This project provides an experimental framework for understanding how annotator noise affects preference learning. By comparing simplified RLHF-style and DPO-style approaches across multiple noise levels, it helps analyze differences in preference prediction accuracy and ranking quality.
+
+The final conclusions should be based on the results obtained by executing the experiments.
+
+## 12. Repository Information
+
+- **Project:** RLHF Against DPO Under Annotator Noise
+- **Student:** G MANOJ
+- **Student ID:** VTU32452
+- **GitHub Repository:** [Annotator-Noise-Lab.vtu32452](https://github.com/manojnaidu123a-cmyk/Annotator-Noise-Lab.vtu32452)
+- **Notebook:** [Open Jupyter Notebook](https://github.com/manojnaidu123a-cmyk/Annotator-Noise-Lab.vtu32452/blob/main/VTU32452_LLMPROJECT.ipynb)
+
+---
+
+*Academic Project — VTU32452*
